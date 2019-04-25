@@ -20,7 +20,7 @@ public class Main {
         Livro livro1 = new Livro("Java para Iniciantes",1001,"Herbet Schildt",152.00,"2015",1);
         livro1.gerarcodigoISBN();
         Livro livro2 = new Livro("HP Lovecraft",1002,"Howard Phillips",29.90,"2018",1);
-        Colecao harryportter = new Colecao();
+
         Livro harry1 = new Livro ("Harry Potter 1",1003,"J.K. Howling",150.00,"2008",20);
         harry1.gerarcodigoISBN();
         Livro harry2 = new Livro ("Harry Potter 2",1004,"J.K. Howling",165.00,"2010",25);
@@ -31,16 +31,22 @@ public class Main {
         colecaoHP.add(harry2);
         colecaoHP.add(harry3);
 
-        Colecao got = new Colecao();
+
         Livro got1 = new Livro("GOT - 1",1006,"George R.R. Martim",190.00,"2012",40);
         got1.gerarcodigoISBN();
         Livro got2 = new Livro("GOT - 2",1007,"George R.R. Martim",210.00,"2016",60);
         got2.gerarcodigoISBN();
         Livro got3 = new Livro("GOT - 3",1008,"George R.R. Martim",255.00,"2018",100);
         got3.gerarcodigoISBN();
+        colecaoGOT.add(got1);
+        colecaoGOT.add(got2);
+        colecaoGOT.add(got3);
 
-
-
+        Colecao got = new Colecao(colecaoGOT,2000,300.00,"G.O.T - Vol. 4");
+        Colecao harryportter = new Colecao(colecaoGOT,2001,280.0,"Harry Potter - Vol. 3");
+        
+        livrariaDH.criarColecao(got);
+        livrariaDH.criarColecao(harryportter);
 
 
 
@@ -53,11 +59,19 @@ public class Main {
        // livrariaDH.efetuarVenda(1000);
        // livrariaDH.efetuarVenda(1000);
 
-        System.out.println("Venda de Coleção de Livros" + "(1)");
-        Scanner sc = new Scanner(System.in);
-        digitar = sc.nextInt();
+        System.out.println("\n=========================\nSelecionar Coleção Desejada\n=========================\n");
+        livrariaDH.mostrarColecoes();
 
-
+       Scanner sc = new Scanner(System.in);
+       digitar = sc.nextInt();
+        if (digitar == 1)
+        {
+        livrariaDH.mostrarColecao(0);
+       }
+       if (digitar == 2)
+       {
+           livrariaDH.mostrarColecao(1);
+        }
 
 
 

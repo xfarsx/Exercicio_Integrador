@@ -1,6 +1,7 @@
 package Exc_integrador;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 
 public class Livraria extends Livro {
@@ -57,13 +58,39 @@ public class Livraria extends Livro {
             }
         }
     }
+     public void criarColecao(Colecao colecao)
+    {
+        livrosDaColecao.add(colecao);
+    }
+    public void mostrarColecoes()
+    {   int n = 0;
+        for (int i = 0; i<livrosDaColecao.size();i++)
+        {
 
-   // public void criarColecao(List<Livro> lista)
-   // {
+            n = n +1;
+            System.out.println("Coleção" + "(" + n + ")" + livrosDaColecao.get(i).getDescricao());
+        }
+    }
 
-        //livrosDaColecao.add(lista);
+    public void mostrarColecao (int loc)
+    {
+        for (int i = 0;i<livrosDaColecao.size();i++)
+        {
+            int digitar;
+            System.out.println("Descrição: " + livrosDaColecao.get(loc).getDescricao() + "\nCódigo:" + livrosDaColecao.get(loc).getCodigo() + "Preço: R$" + livrosDaColecao.get(loc).getPreco());
+            System.out.println("\nVerificar livros (1)Sim (2)Não\n");
+            Scanner sc = new Scanner(System.in);
+            digitar = sc.nextInt();
+            if(digitar == 1 )
+            {
+                for (int x = 0;x<livrosDaColecao.get(loc).getLivroDaColecao().size();x++)
+                {
+                    System.out.println("================================\nTítulo: " + livrosDaColecao.get(loc).getLivroDaColecao().get(x).getTitulo() + "\nAutor: " + livrosDaColecao.get(loc).getLivroDaColecao().get(x).getAutor()
+                    + "\nCódigo: " + livrosDaColecao.get(loc).getLivroDaColecao().get(x).getCodigo() + "\n================================");
+                }
+            }
+        }
 
-  //  }
-
+    }
 
 }
